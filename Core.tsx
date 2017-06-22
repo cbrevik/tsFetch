@@ -12,10 +12,12 @@ export default class Core extends Component<{}, State> {
 
     componentDidMount() {
         fetch('https://github.com/ds300/react-native-typescript-transformer')
+            .then((res) => res.text())
             .then(this.handleResult.bind(this));
     }
 
     handleResult(res) {
+        console.log(res);
         this.setState({ done: 'Done :D' });
     }
 
